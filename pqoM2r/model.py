@@ -1,12 +1,19 @@
 from cashflower import assign, ModelVariable
 
-from pqoM2r.input import policy
+from pqoM2r.input import policy, runplan
 
 
-age = ModelVariable(modelpoint=policy)
+calendar_month = ModelVariable(modelpoint=policy)
+calendar_year = ModelVariable(modelpoint=policy)
 
 
-@assign(age)
-def age_formula(t):
+@assign(calendar_month)
+def calendar_month_formula(t):
+    # PLACE FOR YOUR CODE
+    pass
+
+
+@assign(calendar_year)
+def calendar_year_formula(t):
     # PLACE FOR YOUR CODE
     pass
