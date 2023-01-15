@@ -9,11 +9,25 @@ calendar_year = ModelVariable(modelpoint=policy)
 
 @assign(calendar_month)
 def calendar_month_formula(t):
-    # PLACE FOR YOUR CODE
-    pass
+    valuation_month = runplan.get("valuation_month")
+
+    if t == 0:
+        return valuation_month
+    else:
+        if calendar_month(t-1) == 12:
+            return 1
+        else:
+            return calendar_month(t-1) + 1
 
 
 @assign(calendar_year)
 def calendar_year_formula(t):
-    # PLACE FOR YOUR CODE
-    pass
+    valuation_year = runplan.get("valuation_year")
+
+    if t == 0:
+        return valuation_year
+    else:
+        if calendar_month(t-1) == 12:
+            return calendar_year(t-1) + 1
+        else:
+            return calendar_year(t-1)
